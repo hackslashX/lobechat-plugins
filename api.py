@@ -2,9 +2,6 @@ from typing import List
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
-import os
-os.environ["SEARCH__SEARXNG_BASE_URL"] = "http://localhost:8081"
-
 from backends.composite import CompositeBackend, InputSchema, SingleResult
 
 app = FastAPI()
