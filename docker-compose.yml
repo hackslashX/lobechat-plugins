@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      - SEARCH__SEARXNG_BASE_URL=http://127.0.0.1:8080
+      - SEARCH__SEARXNG_BASE_URL=${SEARCH__SEARXNG_BASE_URL}
     ports:
       - "3400:8000"
     networks:
