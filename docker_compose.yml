@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  my_service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - SEARCH__SEARXNG_BASE_URL=http://127.0.0.1:8080
+    ports:
+      - "3400:8000"
+    networks:
+      - searxng
+
+networks:
+  searxng:
+    external: true
