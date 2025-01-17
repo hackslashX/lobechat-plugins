@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  my_service:
+  search_scrape:
     build:
       context: .
       dockerfile: Dockerfile
@@ -11,6 +11,8 @@ services:
       - "3400:8000"
     networks:
       - searxng
+    volumes:
+      - ./crawl4ai:/root/.crawl4ai
 
 networks:
   searxng:
