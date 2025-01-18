@@ -11,7 +11,7 @@ RUN poetry config virtualenvs.create false
 # Install dependencies
 COPY pyproject.toml /app/pyproject.toml
 COPY poetry.lock /app/poetry.lock
-RUN poetry install --no-dev
+RUN poetry install --no-root
 
 # Set up playwright and crawl4ai
 RUN crawl4ai-setup
