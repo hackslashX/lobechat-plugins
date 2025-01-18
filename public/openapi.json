@@ -26,7 +26,8 @@
                 "type": "string"
               },
               "required": true,
-              "description": "Search query string"
+              "description": "Search query string",
+              "example": "travel destinations"
             }
           ],
           "responses": {
@@ -42,7 +43,8 @@
                     "properties": {
                       "result": {
                         "type": "string",
-                        "description": "Top 10 search results"
+                        "description": "Top 10 search results",
+                        "example": "\"title\": \"Weekend Travel Recommendations\",\n\"link\": \"https://www.example.com/destinations-for-weekends\",\n\"content\": \"Brief description of the weekend travel destinations\",\n\"full_content\": \"Detailed description of the weekend travel destinations\""
                       }
                     }
                   }
@@ -69,7 +71,8 @@
                 "type": "string"
               },
               "required": true,
-              "description": "URL to fetch subtitles from"
+              "description": "URL to fetch subtitles from",
+              "example": "https://www.example.com/video"
             }
           ],
           "responses": {
@@ -85,7 +88,8 @@
                     "properties": {
                       "subtitles": {
                         "type": "string",
-                        "description": "Fetched subtitles"
+                        "description": "Fetched subtitles",
+                        "example": "These are example subtitles."
                       }
                     }
                   }
