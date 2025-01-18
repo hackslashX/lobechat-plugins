@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   hcx_lobechat_plugins:
+    container_name: hcx_lobechat_plugins
     build:
       context: .
       dockerfile: Dockerfile
@@ -13,6 +14,7 @@ services:
       - "3400:3400"
     networks:
       - searxng
+      - lobechat
     volumes:
       - ./crawl4ai:/root/.crawl4ai
 

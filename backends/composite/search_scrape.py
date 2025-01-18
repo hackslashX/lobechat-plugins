@@ -18,7 +18,7 @@ class SearchScapeResult(BaseModel):
     url: str
     content: str
     full_content: str
-    date: datetime
+    date: datetime | None = None
 
 
 class SearchScrapeBackendConfig(BaseSettings):
