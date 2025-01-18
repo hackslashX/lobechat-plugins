@@ -1,23 +1,18 @@
 {
-    "api": {
-      "type": "openapi",
-      "url": "https://raw.githubusercontent.com/hackslashX/lobechat-plugins/refs/heads/main/public/openapi.json",
-      "is_user_authenticated": false
-    },
-    "auth": {
-      "type": "none"
-    },
-    "contact_email": "fadi@fahadbaig.com",
-    "description_for_human": "A plugin for searching the internet, scraping video subtitles, and more!",
-    "description_for_model": "This plugin has the capabilities to search the internet using multiple search engines, scrape video subtitles against a URL, and more!",
-    "author": "hackslashX",
-    "homepage": "https://github.com/hackslashX/lobechat-plugins",
-    "identifier": "hcx-lobechat-plugins",
-    "schema_version": "v1",
-    "meta": {
-        "avatar": "🧩",
-        "tags": ["web", "search", "scrape", "subtitle", "video"],
-        "title": "hcX Plugins",
-        "description": "A plugin for searching the internet, scraping video subtitles, and more!"
-    }
-  }
+  "api": {
+    "type": "openapi",
+    "url": "https://raw.githubusercontent.com/hackslashX/lobechat-plugins/refs/heads/main/public/openapi.json",
+    "is_user_authenticated": false
+  },
+  "auth": {
+    "type": "none"
+  },
+  "contact_email": "fadi@fahadbaig.com",
+  "description_for_human": "A plugin for searching the internet, scraping video subtitles, and more!",
+  "description_for_model": "This plugin has the capabilities to search the internet using multiple search engines, scrape video subtitles against a URL, and more!",
+  "legal_info_url": "",
+  "logo_url": "https://cdn-icons-png.flaticon.com/512/887/887843.png",
+  "name_for_human": "hcX Labs Plugins",
+  "name_for_model": "hcX-labs-plugins",
+  "schema_version": "v1"
+}
