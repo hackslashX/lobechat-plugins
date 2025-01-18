@@ -1,36 +1,39 @@
+from typing import List
+from datetime import datetime
 from pydantic import BaseModel
 from pydantic_settings import BaseSettings
-from .search.searxng import SearXNGSearchBackend, BaseSearchRequestObject
-from .scrape.crawl4_ai import Crawl4AIScrapeBackend
+from ..search.searxng import SearXNGSearchBackend, BaseSearchRequestObject
+from ..scrape.crawl4_ai import Crawl4AIScrapeBackend
 
 
 # TODO: Make this dynamic to allow for easier extension
 
 
-class InputSchema(BaseModel):
+class SearchScrapeInputSchema(BaseModel):
     query: str
 
 
-class SingleResult(BaseModel):
+class SearchScapeResult(BaseModel):
     title: str
     url: str
     content: str
     full_content: str
+    date: datetime
 
 
-class CompositeBackendConfig(BaseSettings):
+class SearchScrapeBackendConfig(BaseSettings):
     COMPOSITE__USE_SCRAPING: bool = True
     COMPOSITE__SCRAPING_RESULTS_LIMIT: int = 5
     COMPOSITE__FINAL_RESULTS_LIMIT: int = 5
 
 
-class CompositeBackend:
+class SearchScrapeBackend:
     def __init__(self):
-        self.params = CompositeBackendConfig()
+        self.params = SearchScrapeBackendConfig()
         self.search_backend = SearXNGSearchBackend()
         self.scrape_backend = Crawl4AIScrapeBackend()
 
-    async def execute(self, request: InputSchema) -> SingleResult:
+    async def execute(self, request: SearchScrapeInputSchema) -> List[SearchScapeResult]:
         search_request = BaseSearchRequestObject(query=request.query)
         search_results = self.search_backend.search(search_request)
         
@@ -47,11 +50,12 @@ class CompositeBackend:
             else:
                 full_content = ""
             results.append(
-                SingleResult(
+                SearchScapeResult(
                     title=search_result.title,
                     url=search_result.url,
                     content=search_result.content,
-                    full_content=full_content
+                    full_content=full_content,
+                    date=search_result.date
                 )
             )
 

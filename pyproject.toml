@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "lobechat-plugins"
+version = "0.1.0"
+description = ""
+authors = ["Muhammad Fahad Baig"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = {extras = ["standard"], version = "^0.115.6"}
+pydantic = "^2.10.5"
+pydantic-settings = "^2.7.1"
+yt-dlp = "^2025.1.15"
+vtt-to-srt3 = "^0.2.0.4"
+requests = "^2.32.3"
+crawl4ai = "^0.4.247"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
