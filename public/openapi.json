@@ -86,6 +86,16 @@
                       "subtitles"
                     ],
                     "properties": {
+                      "title": {
+                        "type": "string",
+                        "description": "Title of the video",
+                        "example": "Weekend Travel Recommendations"
+                      },
+                      "channel": {
+                        "type": "string",
+                        "description": "Channel name",
+                        "example": "Travel Diaries"
+                      },
                       "subtitles": {
                         "type": "string",
                         "description": "Fetched subtitles",

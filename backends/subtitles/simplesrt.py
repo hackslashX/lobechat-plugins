@@ -40,7 +40,7 @@ class Subtitle:
         return f"{hours:02d}:{minutes:02d}:{seconds:02d}"
 
     def __str__(self):
-        return f"{self._print_duration(self.start)}-{self._print_duration(self.end)} {self.text}\n"
+        return f"{self._print_duration(self.start)}-{self._print_duration(self.end)} {self.text} "
 
     def __repr__(self):
         return f"Subtitle Object start:{self.start}, end:{self.end}, text:'{self.text}'"

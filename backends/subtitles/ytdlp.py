@@ -64,4 +64,8 @@ class YtDlpSubtitlesBackend(BaseSubtitlesBackend):
         except:
             pass
 
-        return YtDlpSubtitlesOutputSchema(subtitles=subtitles)
+        return YtDlpSubtitlesOutputSchema(
+            title=info_dict['title'],
+            channel=info_dict['uploader'],
+            subtitles=subtitles
+        )

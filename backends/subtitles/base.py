@@ -1,5 +1,5 @@
 import yt_dlp
-from typing import List, Any
+from typing import Any, Optional
 from abc import ABC, abstractmethod
 from pydantic import BaseModel
 from pydantic_settings import BaseSettings
@@ -13,7 +13,9 @@ class BaseSubtitlesInputRequest(BaseModel):
 
 
 class BaseSubtitlesOutputSchema(BaseModel):
-    subtitles: str
+    title: str = ""
+    channel: str = ""
+    subtitles: str = ""
 
 
 class BaseSubtitlesBackendSettings(BaseSettings):

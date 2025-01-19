@@ -15,6 +15,8 @@ class SubtitlesInputSchema(BaseModel):
 
 
 class SubtitlesResult(BaseModel):
+    title: str = ""
+    channel: str = ""
     subtitles: str
 
 
@@ -30,4 +32,8 @@ class SubtitlesBackend:
     async def execute(self, request: SubtitlesInputSchema) -> SubtitlesResult:
         subtitles_request = YtDlpSubtitlesInputRequest(url=request.url, language=request.language, format=request.format)
         subtitles_results = self.subtitles_backend.extract_subtitles(subtitles_request)
-        return SubtitlesResult(subtitles=subtitles_results.subtitles)
+        return SubtitlesResult(
+            title=subtitles_results.title,
+            channel=subtitles_results.channel,
+            subtitles=subtitles_results.subtitles
+        )
