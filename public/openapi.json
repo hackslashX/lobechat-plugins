@@ -59,6 +59,96 @@
           ]
         }
       },
+      "/api/v1/search/searxng": {
+        "post": {
+          "summary": "Search the internet using SearXNG and return top 5 results",
+          "operationId": "search_searxng",
+          "parameters": [
+            {
+              "in": "query",
+              "name": "query",
+              "schema": {
+                "type": "string"
+              },
+              "required": true,
+              "description": "Search query string",
+              "example": "travel destinations"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful search results",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "required": [
+                      "result"
+                    ],
+                    "properties": {
+                      "result": {
+                        "type": "string",
+                        "description": "Top 10 search results",
+                        "example": "\"title\": \"Weekend Travel Recommendations\",\n\"link\": \"https://www.example.com/destinations-for-weekends\",\n\"content\": \"Brief description of the weekend travel destinations\",\n\"full_content\": \"Detailed description of the weekend travel destinations\""
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "apiAuth": []
+            }
+          ]
+        }
+      },
+      "/api/v1/scrape/crawl4ai": {
+        "post": {
+          "summary": "Scrape the internet using Crawl4AI and return top 5 results",
+          "operationId": "scrape_crawl4ai",
+          "parameters": [
+            {
+              "in": "query",
+              "name": "url",
+              "schema": {
+                "type": "string"
+              },
+              "required": true,
+              "description": "URL to scrape",
+              "example": "https://www.example.com/travel-destinations"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful scrape results",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "required": [
+                      "result"
+                    ],
+                    "properties": {
+                      "full_content": {
+                        "type": "string",
+                        "description": "Scraped content",
+                        "example": "Detailed description of the travel destinations"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "security": [
+            {
+              "apiAuth": []
+            }
+          ]
+        }
+      },
       "/api/v1/subtitles": {
         "post": {
           "summary": "Fetch subtitles from the given URL",

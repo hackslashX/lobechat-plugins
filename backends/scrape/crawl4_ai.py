@@ -7,6 +7,14 @@ from .base import BaseScrapeBackend, BaseScrapeRequestObject, BaseScrapeOutputSc
 from .exceptions import InvalidEngineSettings
 
 
+class Crawl4AiOutputSchema(BaseScrapeOutputSchema):
+    pass
+
+
+class Crawl4AiInputSchema(BaseScrapeRequestObject):
+    pass
+
+
 class Crawl4AIBackendSettings(BaseScrapeBackendSettings):
     CRAWL4AI__IGNORE_LINKS: bool = True
     CRAWL4AI__EXCLUDE_TAGS: List[str] = ["nav", "footer", "aside"]

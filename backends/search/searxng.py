@@ -4,7 +4,15 @@ from .exceptions import ErrorInEngine
 
 class SearXNGBaseSettings(BaseSearchBackendSettings):
     SEARCH__SEARXNG_BASE_URL: str
-    
+
+
+class SearXNGOutputSchema(BaseSearchOutputSchema):
+    pass
+
+
+class SearXNGInputSchema(BaseSearchRequestObject):
+    pass
+
 
 class SearXNGSearchBackend(BaseSearchBackend):
 
@@ -14,7 +22,7 @@ class SearXNGSearchBackend(BaseSearchBackend):
     # Add type hints for the parameters
     params: SearXNGBaseSettings
 
-    def search(self, request: BaseSearchRequestObject) -> BaseSearchOutputSchema:
+    def search(self, request: SearXNGInputSchema) -> SearXNGOutputSchema:
         try:
             # Extract supported parameters from the request object
             request_params = {
